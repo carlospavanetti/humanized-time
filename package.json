@@ -5,7 +5,11 @@
   "license": "MIT",
   "repository": "carlospavanetti/humanized-time",
   "main": "lib/index.js",
+  "scripts": {
+    "test": "jest"
+  },
   "devDependencies": {
-    "@babel/preset-env": "^7.9.5"
+    "@babel/preset-env": "^7.9.5",
+    "jest": "^25.3.0"
   }
 }
