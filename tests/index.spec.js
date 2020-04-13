@@ -28,3 +28,11 @@ it('Should handle a time of 1 hour ago', () => {
   const oneHour = new Date(Date.now() - HOUR);
   expect(humanizedTime(oneHour)).toBe('1 hour ago');
 });
+
+it('Should handle a time of more hours ago', () => {
+  Array.from(Array(8)).forEach((_, index) => {
+    const hours = index + 2;
+    const hoursAgo = new Date(Date.now() - hours * HOUR);
+    expect(humanizedTime(hoursAgo)).toBe(`${hours} hours ago`);
+  });
+});
