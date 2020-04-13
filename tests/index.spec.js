@@ -47,3 +47,12 @@ it('Should accept descriptive option with minutes ago', () => {
     unit: 'minute',
   });
 });
+
+it('Should accept descriptive option with hours ago', () => {
+  const minutesAgo = new Date(Date.now() - 5 * HOUR);
+  expect(humanizedTime(minutesAgo, { output: 'descriptive' })).toEqual({
+    moment: 'past',
+    value: 5,
+    unit: 'hour',
+  });
+});
