@@ -4,5 +4,8 @@
   "description": "Humanized timespans",
   "license": "MIT",
   "repository": "carlospavanetti/humanized-time",
-  "main": "lib/index.js"
+  "main": "lib/index.js",
+  "devDependencies": {
+    "@babel/preset-env": "^7.9.5"
+  }
 }
