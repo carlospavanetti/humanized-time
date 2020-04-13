@@ -1,5 +1,5 @@
 import humanizedTime from '../lib/index.js';
-import { MINUTE, HOUR } from '../lib/constants';
+import { SECOND, MINUTE, HOUR } from '../lib/constants';
 
 it('Should handle time around now', () => {
   const now = new Date(Date.now());
@@ -55,4 +55,11 @@ it('Should accept descriptive option with hours ago', () => {
     value: 5,
     unit: 'hour',
   });
+});
+
+it('Should accept option to consider seconds', () => {
+  const secondsAgo = new Date(Date.now() - 59 * SECOND);
+  expect(humanizedTime(secondsAgo, { precision: 'seconds' })).toBe(
+    '59 seconds ago',
+  );
 });
