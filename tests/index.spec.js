@@ -15,3 +15,11 @@ it('Should handle a time 1 minute ago', () => {
   const oneMinute = new Date(Date.now() - MINUTE);
   expect(humanizedTime(oneMinute)).toBe('1 minute ago');
 });
+
+it('Should handle a time of more minutes ago', () => {
+  Array.from(Array(8)).forEach((_, index) => {
+    const minutes = index + 2;
+    const minutesAgo = new Date(Date.now() - minutes * MINUTE);
+    expect(humanizedTime(minutesAgo)).toBe(`${minutes} minutes ago`);
+  });
+});
