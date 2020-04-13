@@ -38,3 +38,12 @@ it('Should handle a time of more hours ago', () => {
     expect(humanizedTime(hoursAgo)).toBe(`${hours} hours ago`);
   });
 });
+
+it('Should accept descriptive option with minutes ago', () => {
+  const minutesAgo = new Date(Date.now() - 2 * MINUTE);
+  expect(humanizedTime(minutesAgo, { output: 'descriptive' })).toEqual({
+    moment: 'past',
+    value: 2,
+    unit: 'minute',
+  });
+});
