@@ -1,0 +1,8 @@
+{
+  "name": "humanized-time",
+  "version": "0.0.1",
+  "description": "Humanized timespans",
+  "license": "MIT",
+  "repository": "carlospavanetti/humanized-time",
+  "main": "lib/index.js"
+}
