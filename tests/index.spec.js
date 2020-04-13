@@ -1,5 +1,5 @@
 import humanizedTime from '../lib/index.js';
-import { MINUTE } from '../lib/constants';
+import { MINUTE, HOUR } from '../lib/constants';
 
 it('Should handle time around now', () => {
   const now = new Date(Date.now());
@@ -22,4 +22,9 @@ it('Should handle a time of more minutes ago', () => {
     const minutesAgo = new Date(Date.now() - minutes * MINUTE);
     expect(humanizedTime(minutesAgo)).toBe(`${minutes} minutes ago`);
   });
+});
+
+it('Should handle a time of 1 hour ago', () => {
+  const oneHour = new Date(Date.now() - HOUR);
+  expect(humanizedTime(oneHour)).toBe('1 hour ago');
 });
