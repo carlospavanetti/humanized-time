@@ -8,7 +8,7 @@ it('Should handle time around now', () => {
 
 it('Should handle option to return an object', () => {
   const now = new Date(Date.now());
-  expect(humanizedTime(now, { output: 'descriptive' })).toEqual({
+  expect(humanizedTime(now, { format: 'descriptive' })).toEqual({
     moment: 'now',
   });
 });
@@ -41,7 +41,7 @@ it('Should handle a time of more hours ago', () => {
 
 it('Should accept descriptive option with minutes ago', () => {
   const minutesAgo = new Date(Date.now() - 2 * MINUTE);
-  expect(humanizedTime(minutesAgo, { output: 'descriptive' })).toEqual({
+  expect(humanizedTime(minutesAgo, { format: 'descriptive' })).toEqual({
     moment: 'past',
     value: 2,
     unit: 'minute',
@@ -50,7 +50,7 @@ it('Should accept descriptive option with minutes ago', () => {
 
 it('Should accept descriptive option with hours ago', () => {
   const minutesAgo = new Date(Date.now() - 5 * HOUR);
-  expect(humanizedTime(minutesAgo, { output: 'descriptive' })).toEqual({
+  expect(humanizedTime(minutesAgo, { format: 'descriptive' })).toEqual({
     moment: 'past',
     value: 5,
     unit: 'hour',
@@ -76,6 +76,6 @@ it('Should accept a custom output format', () => {
     const pluralizer = value > 1 ? 's' : '';
     if (moment === 'past') return `past ${value} ${unit}${pluralizer}...`;
   }
-  expect(humanizedTime(one, { output: customOutput })).toBe('past 1 day...');
-  expect(humanizedTime(two, { output: customOutput })).toBe('past 2 days...');
+  expect(humanizedTime(one, { format: customOutput })).toBe('past 1 day...');
+  expect(humanizedTime(two, { format: customOutput })).toBe('past 2 days...');
 });
