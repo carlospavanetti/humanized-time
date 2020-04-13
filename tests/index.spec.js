@@ -68,3 +68,14 @@ it('Should handle a time of days ago', () => {
   const oneDay = new Date(Date.now() - 6 * DAY);
   expect(humanizedTime(oneDay)).toBe('6 days ago');
 });
+
+it('Should accept a custom output format', () => {
+  const one = new Date(Date.now() - DAY);
+  const two = new Date(Date.now() - 2 * DAY);
+  function customOutput({ moment, value, unit }) {
+    const pluralizer = value > 1 ? 's' : '';
+    if (moment === 'past') return `past ${value} ${unit}${pluralizer}...`;
+  }
+  expect(humanizedTime(one, { output: customOutput })).toBe('past 1 day...');
+  expect(humanizedTime(two, { output: customOutput })).toBe('past 2 days...');
+});
