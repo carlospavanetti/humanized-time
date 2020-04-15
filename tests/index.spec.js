@@ -93,3 +93,9 @@ it('Should handle default formatting for times in the future', () => {
   const aHour = new Date(Date.now() + 2 * HOUR);
   expect(humanizedTime(aHour)).toBe('in 2 hours');
 });
+
+it('Should accept an argument to define starting reference', () => {
+  const aMinute = new Date(Date.now() + 40 * MINUTE);
+  const reference = new Date(Date.now() + 50 * MINUTE);
+  expect(humanizedTime(aMinute, { reference })).toBe('10 minutes ago');
+});
