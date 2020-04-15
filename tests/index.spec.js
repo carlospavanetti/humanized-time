@@ -88,3 +88,8 @@ it('Should handle a time in the future', () => {
     unit: 'hour',
   });
 });
+
+it('Should handle default formatting for times in the future', () => {
+  const aHour = new Date(Date.now() + 2 * HOUR);
+  expect(humanizedTime(aHour)).toBe('in 2 hours');
+});
