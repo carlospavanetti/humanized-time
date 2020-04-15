@@ -65,8 +65,8 @@ it('Should accept option to consider seconds', () => {
 });
 
 it('Should handle a time of days ago', () => {
-  const oneDay = new Date(Date.now() - 6 * DAY);
-  expect(humanizedTime(oneDay)).toBe('6 days ago');
+  const aDay = new Date(Date.now() - 6 * DAY);
+  expect(humanizedTime(aDay)).toBe('6 days ago');
 });
 
 it('Should accept a custom output format', () => {
@@ -78,4 +78,13 @@ it('Should accept a custom output format', () => {
   }
   expect(humanizedTime(one, { format: customOutput })).toBe('past 1 day...');
   expect(humanizedTime(two, { format: customOutput })).toBe('past 2 days...');
+});
+
+it('Should handle a time in the future', () => {
+  const aHour = new Date(Date.now() + 2 * HOUR);
+  expect(humanizedTime(aHour, { format: 'descriptive' })).toEqual({
+    moment: 'future',
+    value: 2,
+    unit: 'hour',
+  });
 });
