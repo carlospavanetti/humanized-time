@@ -5,6 +5,10 @@
   "license": "MIT",
   "repository": "carlospavanetti/humanized-time",
   "main": "src/index.js",
+  "files": [
+    "src/index.js",
+    "src/constants.js"
+  ],
   "scripts": {
     "test": "jest"
   },
