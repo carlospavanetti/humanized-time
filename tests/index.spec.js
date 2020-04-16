@@ -1,5 +1,5 @@
-import humanizedTime from '../lib/index.js';
-import { SECOND, MINUTE, HOUR, DAY } from '../lib/constants';
+import humanizedTime from '../src/index.js';
+import { SECOND, MINUTE, HOUR, DAY } from '../src/constants';
 
 it('Should handle time around now', () => {
   const now = new Date(Date.now());
