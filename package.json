@@ -1,6 +1,6 @@
 {
   "name": "humanized-time",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Humanized timespans",
   "license": "MIT",
   "repository": "carlospavanetti/humanized-time",
